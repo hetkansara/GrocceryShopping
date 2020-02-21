@@ -1,0 +1,46 @@
+﻿@model GrocceryShopping.Models.ViewModels.OrderView
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+    <section class="shop-lanes-container">
+        <h2 class="section-title">Your Order</h2>
+
+        <div class="box-container">
+           
+            @{
+                foreach (var Order in Model.Orders)
+                {
+                    foreach (var Product in Model.Products)
+                    {
+                        if (Product.ProductID == Order.ProductID)
+                        {
+                        <div class="box">
+                            @{
+                                if (Product.ProductImage != null && Product.ProductImage != "")
+                                {
+                                    <img class="product-img" src="~/Content/Products/@Product.ProductImage" />
+                                }
+
+                            }
+                            <p>@Product.ProductTitle</p>
+                            <p>Quantity: @Order.Quantity @Product.ProductMeasureUnit</p>
+                            @{
+                                <a href="/Order/DeleteProduct/@Order.OrderID">Remove from Order</a>
+                            }
+                        </div>
+                        }
+
+                    }
+                }
+            }
+        </div>
+        @{
+            if (Model.Orders.Count != 0)
+            {
+                <a href="Delete" class="checkout-btn">Checkout</a>
+            }
+        }
+
+    </section>

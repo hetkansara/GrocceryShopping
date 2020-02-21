@@ -1,0 +1,38 @@
+﻿@model List<GrocceryShopping.Models.Category>
+
+@{
+    ViewBag.Title = "Product Add";
+}
+
+<h2>Add Product</h2>
+
+<form method="POST" action="AddProduct">
+    <div class="form-group">
+        <label for="ProductCategory">Product Category</label>
+        <select class="form-control" id="ProductCategory" name="ProductCategory" required>
+            @{
+                foreach (var Category in Model)
+                {
+                    <option value="@Category.CategoryID">@Category.CategoryTitle</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="productTitle">Product Title</label>
+        <input type="text" class="form-control" id="ProductTitle" name="ProductTitle" aria-describedby="ProductTitle" placeholder="Enter product title" required>
+    </div>
+    <div class="form-group">
+        <label for="ProductDescription">Product Description</label>
+        <textarea class="form-control" id="ProductDescription" name="ProductDescription" aria-describedby="ProductTitle"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="availableQuantity">Available Quantity</label>
+        <input type="number" class="form-control" id="AvailableQuantity" name="AvailableQuantity" aria-describedby="AvailableQuantity" placeholder="Enter available quantity" required>
+    </div>
+    <div class="form-group">
+        <label for="productMeasareUnit">Measurement Unit</label>
+        <input type="text" class="form-control" id="ProductMeasureUnit" name="ProductMeasureUnit" aria-describedby="ProductMeasureUnit" placeholder="Enter measurement unit" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>

@@ -1,0 +1,11 @@
+﻿@model GrocceryShopping.Models.Category
+@{
+    ViewBag.Title = "Category Delete";
+}
+
+<h2>Delete Category?</h2>
+
+<p>Are you sure you want to delete category? - @Model.CategoryTitle</p>
+
+<a href="/Category/DeleteCategory/@Model.CategoryID">Yes</a> | <a href="/Category/List">No</a>
+

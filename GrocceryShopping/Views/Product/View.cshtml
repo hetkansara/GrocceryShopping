@@ -1,0 +1,23 @@
+﻿@model GrocceryShopping.Models.ViewModels.ProductUpdate
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Product Details</h2>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        @{
+            if (Model.Product.ProductImage != null && Model.Product.ProductImage != "")
+            {
+                <img class="product-img" src="~/Content/Products/@Model.Product.ProductImage" />
+            }
+
+        }
+        <h3 class="card-title">@Model.Product.ProductTitle</h3>
+        <p class="card-text">@Model.Product.ProductDescription</p>
+        <p class="card-text">Available Quantity: @Model.Product.AvailableQuantity @Model.Product.ProductMeasureUnit</p>
+        <a href="/Product/Update/@Model.Product.ProductID" class="card-link">Update</a>
+        <a href="/Product/Delete/@Model.Product.ProductID" class="card-link">Delete</a>
+    </div>
+</div>

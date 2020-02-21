@@ -1,0 +1,11 @@
+﻿@model GrocceryShopping.Models.Product
+@{
+    ViewBag.Title = "Product Delete";
+}
+
+<h2>Delete Product?</h2>
+
+<p>Are you sure you want to delete product? - @Model.ProductTitle</p>
+
+<a href="/Product/DeleteProduct/@Model.ProductID">Yes</a> | <a href="/Product/List">No</a>
+

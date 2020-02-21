@@ -1,0 +1,47 @@
+﻿@model GrocceryShopping.Models.ViewModels.ProductUpdate
+
+@{
+    ViewBag.Title = "Product Update";
+}
+
+<h2>Update Product</h2>
+
+<form method="POST" action="/Product/UpdateProduct/@Model.Product.ProductID" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="ProductCategory">Product Category</label>
+        <select class="form-control" id="ProductCategory" name="ProductCategory" required>
+            @{
+                foreach (var Category in Model.Categories)
+                {
+                    var selected = "";
+                    if(Category.CategoryID == Model.Product.CategoryID)
+                    {
+                        selected = "selected";
+                    }
+                    <option value="@Category.CategoryID" @selected>@Category.CategoryTitle</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="ProductImage">Image</label>
+        <input type="file" name="ProductImage" id="ProductImage" />
+    </div>
+    <div class="form-group">
+        <label for="productTitle">Product Title</label>
+        <input type="text" class="form-control" id="ProductTitle" name="ProductTitle" aria-describedby="ProductTitle" placeholder="Enter product title" value="@Model.Product.ProductTitle" required>
+    </div>
+    <div class="form-group">
+        <label for="ProductDescription">Product Description</label>
+        <textarea class="form-control" id="ProductDescription" name="ProductDescription" aria-describedby="ProductDescription">@Model.Product.ProductDescription</textarea>
+    </div>
+    <div class="form-group">
+        <label for="availableQuantity">Available Quantity</label>
+        <input type="number" class="form-control" id="AvailableQuantity" name="AvailableQuantity" aria-describedby="AvailableQuantity" value="@Model.Product.AvailableQuantity" placeholder="Enter available quantity" required>
+    </div>
+    <div class="form-group">
+        <label for="productMeasareUnit">Measurement Unit</label>
+        <input type="text" class="form-control" id="ProductMeasureUnit" name="ProductMeasureUnit" aria-describedby="ProductMeasureUnit" value="@Model.Product.ProductMeasureUnit" placeholder="Enter measurement unit" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Product</button>
+</form>

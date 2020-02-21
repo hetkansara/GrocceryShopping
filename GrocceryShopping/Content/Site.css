@@ -1,0 +1,128 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+// Custom style - Het Kansara
+* {
+    font-family: 'Segoe UI';
+}
+
+body {
+    padding: 0;
+}
+
+li {
+    display: inline-block !important;
+}
+
+a {
+    color: #465069;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+.brand-name {
+    color: white;
+}
+
+.nav {
+    background-color: #6E7DA4;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+    .nav-link:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+.box-container {
+    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .box-container .box {
+        display: inline-block;
+        padding: 10px;
+        background-color: #EBEBEB;
+        border: 1px solid #A6A6A6;
+    }
+
+.section-title {
+    color: #404040;
+    font-size: 16px;
+    padding: 15px 15px 0 15px;
+}
+
+.box-list {
+    list-style: none;
+    padding-left: 0;
+    color: #616060;
+}
+
+.box a {
+    text-decoration: none;
+    color: #6E7DA4;
+}
+
+footer p {
+    text-align: center;
+}
+
+.add-btn {
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.body-content .block-heading {
+    float: left;
+    display: inline-block;
+}
+
+table {
+    border: 1px solid lightgrey;
+}
+.checkout-btn {
+    display: block;
+    padding: 15px 15px 0 15px;
+}
+.product-img {
+    max-height: 50px;
+    border-radius: 10px;
+}
+.card{
+    width: auto !important;
+}
+.search-input{
+    display:inline-block !important;
+}

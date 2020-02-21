@@ -1,0 +1,36 @@
+﻿@model List<GrocceryShopping.Models.Category>
+
+@{
+    ViewBag.Title = "Category List";
+}
+
+<h2 class="block-heading">Categories</h2>
+<a href="Add" class="add-btn">Add Category</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="2">
+                <form method="GET" action="List">
+                    <input type="text" class="form-control search-input" id="searchKey" name="searchKey" aria-describedby="searchKey" placeholder="Search category...">
+                    <button type="submit" class="btn btn-primary search-input">Search</button>
+                </form>
+            </th>
+        </tr>
+        <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var Category in Model)
+            {
+                <tr>
+                    <td>@Category.CategoryTitle</td>
+                    <td><a href="Update/@Category.CategoryID">Edit</a> | <a href="Delete/@Category.CategoryID">Delete</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+﻿@model List<GrocceryShopping.Models.Category>
+
+@{
+    ViewBag.Title = "Categories Page";
+}
+
+<section class="shop-lanes-container">
+    <h2 class="section-title">Categories | No Frill's</h2>
+    <div class="box-container">
+        @{
+            foreach (var Category in Model)
+            {
+                <div class="box">
+                    <a href="/Home/Products/@Category.CategoryID">
+                        <p>@Category.CategoryTitle</p>
+                    </a>
+                </div>
+            }
+        }
+
+    </div>
+</section>

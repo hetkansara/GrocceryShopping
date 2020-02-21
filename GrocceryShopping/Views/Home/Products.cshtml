@@ -1,0 +1,37 @@
+﻿@model List<GrocceryShopping.Models.Product>
+
+
+@{
+    ViewBag.Title = "Products";
+}
+
+
+<section class="shop-lanes-container">
+    <h2 class="section-title"><a href="/Home/Index">Categories</a> > Products</h2>
+    <div class="box-container">
+        @{
+            foreach (var Product in Model)
+            {
+                <div class="box">
+                    @{
+                        if (Product.ProductImage != null && Product.ProductImage != "")
+                        {
+                            <img class="product-img" src="~/Content/Products/@Product.ProductImage" />
+                        }
+
+                    }
+                    <p>@Product.ProductTitle</p>
+                    <p>Available @Product.AvailableQuantity @Product.ProductMeasureUnit</p>
+                    @{
+                        if (Int32.Parse(Product.AvailableQuantity) > 0)
+                        {
+                            <a href="/Order/Add/@Product.ProductID">Add to Order</a>
+                        }
+                    }
+
+                </div>
+            }
+        }
+
+    </div>
+</section>

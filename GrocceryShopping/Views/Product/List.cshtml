@@ -1,0 +1,46 @@
+﻿@model List<GrocceryShopping.Models.Product>
+
+@{
+    ViewBag.Title = "Product List";
+}
+
+<h2 class="block-heading">Products</h2>
+<a href="Add" class="add-btn">Add Product</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="3">
+                <form method="GET" action="List">
+                    <input type="text" class="form-control search-input" id="searchKey" name="searchKey" aria-describedby="searchKey" placeholder="Search product...">
+                    <button type="submit" class="btn btn-primary search-input">Search</button>
+                </form>
+            </th>
+        </tr>
+        <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Available Quantity</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var Product in Model)
+            {
+                <tr>
+                    <td>
+                        @{
+                            if (Product.ProductImage != null && Product.ProductImage != "")
+                            {
+                                <img class="product-img" src="~/Content/Products/@Product.ProductImage" />
+                            }
+
+                        }
+                    <a href="View/@Product.ProductID">@Product.ProductTitle</a>
+                    </td>
+                    <td>@Product.AvailableQuantity @Product.ProductMeasureUnit</td>
+                    <td><a href="Update/@Product.ProductID">Edit</a> | <a href="Delete/@Product.ProductID">Delete</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
